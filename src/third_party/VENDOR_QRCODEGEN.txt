@@ -1,0 +1,8 @@
+qrcodegen.c and qrcodegen.h are included in this source tree.
+
+Build the shipped, reviewed bytes. Do not overwrite them from upstream master.
+If recovery is needed, restore both files from the same TostonSync source tag
+using its exact tracked bytes.
+
+Upstream: Project Nayuki, QR-Code-generator, C implementation.
+License: MIT. The original notices remain in both files; see ../../CREDITS.md.

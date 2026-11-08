@@ -1,0 +1,237 @@
+; ============================================================
+;  TostónSync configuration
+;  Path on PS5: /data/tostonsync/config.ini
+;
+;  This file is YOURS. It is never uploaded. Do not commit it
+;  to a repository — it contains your Google OAuth credentials
+;  after first run.
+; ============================================================
+
+[general]
+; Web UI / API port (LAN only, listens on all interfaces).
+http_port = 1993
+
+; Master switch for user-facing PS5 system notifications.
+notifications = true
+; Check signed GitHub releases at most once per day; installation remains manual.
+update_auto_check = true
+
+; important | balanced | all
+; Default important: errors, recovery, destination attention, restore results.
+notification_level = important
+
+; Verbosity: error | warn | info | debug
+log_level = info
+
+; Maximum on-disk log size before rotation (bytes).
+log_max_bytes = 1048576
+
+; UI and game-name language / Idioma de la interfaz y nombres de juegos: en | es.
+; English is the default / Ingles es el idioma por defecto.
+language = en
+
+; First browser visit asks for language until this becomes true.
+; La primera visita del navegador pregunta el idioma hasta que esto sea true.
+language_prompt_seen = false
+
+; Optional access protection for external LAN devices. The PS5's own browser
+; uses http://127.0.0.1:1993 and is never asked for a code.
+; Default false: anyone on your LAN can open TostónSync.
+ui_auth_enabled = false
+
+; Access code for external devices (use it as a PIN or a password).
+; Ignored while ui_auth_enabled=false.
+;   Forgot it? Set ui_auth_enabled=false, OR drop an empty file named
+;   "reset_auth" in /data/tostonsync or in the USB root and reboot.
+ui_password =
+
+; When true, the access code is wiped on every boot (auth won't survive a
+; reboot). Leave false to keep protection across reboots.
+ui_auth_reset_on_boot = false
+
+; Open the PS5's own web browser to the Settings UI on boot, so you can
+; configure TostónSync from the console itself (like Payload Manager).
+open_browser = true
+
+
+[display]
+; How the Web UI shows time: auto | 12h | 24h.
+time_format = auto
+
+; auto, an IANA zone, or a fixed offset.
+; Examples: America/Puerto_Rico, Europe/Madrid, Asia/Tokyo, offset:-04:00
+display_timezone = auto
+
+
+[console]
+; Friendly identity. IP addresses may change; these labels should not.
+console_name = This PS5
+console_type = PS5
+console_role = main
+
+
+[cloud]
+; The supported cloud backend is "gdrive".
+provider = gdrive
+
+
+[gdrive]
+; ---- Your Google Cloud OAuth credentials ----
+; Create them once at https://console.cloud.google.com/ as an
+; "OAuth client ID" of type "TVs and Limited Input devices".
+; See README.md Step 4 for the full walkthrough.
+;
+; These two lines stay on YOUR console. They are not embedded
+; in the distributed binary and are not shared with anyone.
+client_id     = PASTE_YOUR_CLIENT_ID_HERE
+client_secret = PASTE_YOUR_CLIENT_SECRET_HERE
+
+; Drive folder name under which all backups are organized.
+; Final layout:
+; My Drive / <root_folder> / <stable_user_uid> / <TITLE_ID> / <backup>.zip
+root_folder = TostónSync
+
+; Use Drive's "appData" hidden folder instead of "My Drive".
+; true  = hidden from the user, scoped to this OAuth client only.
+; false = visible in My Drive as a normal folder (recommended).
+use_appdata = false
+
+; EXPERIMENTAL — load a custom CA bundle (/data/tostonsync/cacert.pem) into the
+; SSL context at startup via sceSslLoadRootCACert. Keep this FALSE: that call
+; destabilised the daemon on hardware, so normal startup must never touch it.
+; Only enable if you have proven it works with the "Test custom CA loading"
+; diagnostic. A present/missing cacert.pem must never crash the daemon, and with
+; this false it never will.
+custom_ca = false
+
+
+[usb]
+; ---- Backup to a plugged-in USB / external drive ----
+; When enabled, every backup is ALSO written to the first USB drive
+; the PS5 has mounted (/mnt/usb0 .. /mnt/usb7). Works with no internet
+; and no Google sign-in, and you can restore straight from the stick
+; in the Settings UI. Independent of Google Drive — you can use one,
+; the other, or both.
+enabled = true
+
+; Subfolder created on the USB drive.
+; Layout: <USB>/<folder>/<stable_user_uid>/<TITLE_ID>/<backup>.zip
+folder = TostónSync
+
+
+[triggers]
+; Comma-separated list. Multiple triggers fire independently.
+;
+;   on_change     — near-real-time. Backs up `change_settle_seconds`
+;                    after the last write, so an in-progress save
+;                    is never grabbed half-written but your backups
+;                    are always nearly up to date while you play.
+;   on_game_close — uploads when the currently running title closes.
+;   on_idle       — after `idle_seconds` of no save folder writes.
+;   on_shutdown   — when the PS5 begins powering off.
+;   interval      — every `interval_seconds` (v0.1 behavior).
+;                    Use only if your saves change rarely.
+;   manual        — disables all automatic triggers. Sync only
+;                    via the Settings UI "Sync now" button.
+modes = on_change, on_game_close, on_shutdown
+
+; balanced: at most one live backup per title every 15 minutes, plus final close
+; aggressive: current behavior, every settled real save change
+; game_close: no gameplay upload; final backup when the game exits
+live_backup_mode = balanced
+
+idle_seconds          = 120
+interval_seconds      = 600
+; on_change settles writes for this long before firing. Too short =
+; risk of zipping a half-written save (CRC dedup catches the next
+; refire). 30 s is a comfortable balance for most games.
+change_settle_seconds = 30
+
+
+[retention]
+; ---- Per-title version cap ----
+; max_versions = 0  → unlimited (only bounded by max_total_size_per_title)
+; max_versions = N  → keep last N zips per title, prune older ones
+max_versions = 10
+
+; ---- Per-title hard size cap ----
+; Examples: 500MB, 5GB, 0 = no cap. When exceeded, oldest versions
+; are deleted first until under the cap.
+max_total_size_per_title = 5GB
+
+; ---- Global cap across all titles ----
+; Triggers a refusal-to-upload (with a toast) when crossed.
+max_total_size_global = 13GB
+
+; Deprecated compatibility key. Content fingerprints now decide whether a
+; save changed; equal-size saves are never skipped solely because of size.
+min_change_bytes = 0
+
+; ---- Skip identical content ----
+; SHA-256 fingerprints the save contents while zipping. Destinations that
+; already have that fingerprint are skipped; missing destinations retry.
+dedup_by_hash = true
+
+
+[titles]
+; Comma-separated Title IDs (e.g. CUSA00000, PPSA00001).
+; Leave empty to apply the defaults to every game.
+
+; Known non-game apps start excluded. You can enable them later in the UI.
+exclude = PPSA01650
+
+; Back up ONLY these titles (empty = back up everything).
+include_only =
+
+; Hide known non-game apps from the main Saves list on first migration.
+hidden = PPSA01650
+
+; Keep this true after first setup so explicit user choices are preserved.
+app_defaults_applied = true
+
+
+[paths]
+; Where saves live on the PS5. The daemon escapes its sandbox
+; and walks every user under this root.
+saves_root = /user/home
+
+; Where TostónSync stores its own state (config, tokens, log, cache).
+state_dir = /data/tostonsync
+
+; Working ZIPs for outgoing backups and restore extraction.
+; Browser imports use <state_dir>/imports first and USB only as fallback.
+staging_dir = /data/tostonsync/staging
+
+
+[advanced]
+; ZIP compression: store | deflate
+; store   = no compression (fastest, biggest)
+; deflate = standard ZIP deflate (smaller, recommended)
+zip_mode = deflate
+
+; How many backups run at once. 1 = sequential (the rest wait in the queue,
+; shown as "N queued"). Raise it (up to 8) to back up several games in parallel.
+upload_workers = 1
+
+; Retry policy for transient network failures.
+retry_max_attempts = 5
+retry_backoff_ms   = 2000
+
+
+[crypto]
+; Kernel-mediated decrypt/resign of PS5 saves.
+;
+; When OFF (default): backups capture the encrypted savedata0.bin
+; blob and restores drop it back in place. This works for backup
+; and restore on the SAME console + SAME user — which is the case
+; ~99% of users actually care about. Needs no extra kernel access
+; beyond what the watcher already uses.
+;
+; Reserved compatibility flag. Hardware tests showed that kernel re-sealing
+; can produce saves reported as corrupt, so TostónSync forces this OFF even
+; if an older config.ini contains true. Raw encrypted restores are allowed
+; only when the destination save already exists and its sealed identity and
+; savedata.db registration can be verified before any file is replaced.
+use_kernel_resign        = false
+
+auto_fallback_on_failure = true

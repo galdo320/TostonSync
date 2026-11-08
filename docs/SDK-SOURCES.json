@@ -1,0 +1,266 @@
+{
+  "sdk_version": "0.43",
+  "commit": "d9c9519116944a7f1c22d262012c53b80b3520b7",
+  "source_url": "https://codeload.github.com/ps5-payload-dev/sdk/tar.gz/d9c9519116944a7f1c22d262012c53b80b3520b7",
+  "source_archive_sha256": "44b541e77eef201afb4fbb6b32af9b97a4cdf893fc2d944d228ff46a8235fd10",
+  "binary_archive_sha256": "a9cc9929f21b2b2c5d5b309f3bab4997067c45281c0622cf4838b1aecba66fcb",
+  "reference_version": "0.5.271",
+  "components": [
+    {
+      "source": "crt/_start.S",
+      "sha256": "9695a7582af148272ab81b2c2bcc6c26460b1fc70bdc4c3e724ac5ae5750610c",
+      "license": "GPL-3.0-or-later",
+      "basis": "crt/Makefile explicit _start.o input",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/crt/_start.S"
+    },
+    {
+      "source": "crt/crt.c",
+      "sha256": "f0c9e81e740b6beeda3dd4a62e22751603b310b258b7bb7c0875a4cbdcaa212e",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/crt/crt.c"
+    },
+    {
+      "source": "crt/kernel.c",
+      "sha256": "16ca32ffc36309f2caa768d2f4e565f8d31186d7f8625de83bf3f1869e0c81c0",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/crt/kernel.c"
+    },
+    {
+      "source": "crt/kernel_iommu.c",
+      "sha256": "ab2fe9327974f54249bdb0b3cf754e8ee236edaa57a06263489234034dbf40de",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/crt/kernel_iommu.c"
+    },
+    {
+      "source": "crt/kernel_procio.c",
+      "sha256": "39875daba1d6cc99308a928aa5dfdb98a86e85113a5f28addd4e17aad533694e",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/crt/kernel_procio.c"
+    },
+    {
+      "source": "crt/klog.c",
+      "sha256": "d407003bf3ec08613fd57d18f57bbbdaae7b8c8c67f30c0d1f54288e01f719de",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/crt/klog.c"
+    },
+    {
+      "source": "crt/mdbg.c",
+      "sha256": "5a3cba6021d77252c831c8aa994989604c867cb9b0c14c8757d73438c2cea233",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/crt/mdbg.c"
+    },
+    {
+      "source": "crt/nid.c",
+      "sha256": "6bd670b05ec4a8816688e18cc4425353c2f764f574d0c7f3db5cc4e8c5b7a9dc",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/crt/nid.c"
+    },
+    {
+      "source": "crt/patch.c",
+      "sha256": "a9cf1814874f3c2c4b337a23270a80ff159b2e6247f9781018bbe1def1845deb",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/crt/patch.c"
+    },
+    {
+      "source": "crt/rtld.c",
+      "sha256": "98b2f3d1e35cdfe993decae673142ebe0b51a8a7ce587ae50ac6e9b19aa5f565",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/crt/rtld.c"
+    },
+    {
+      "source": "crt/rtld_dlfcn.c",
+      "sha256": "4ea97294c0b340ee815850d43ad7b120dbffe426edb07780f89a53d2bed84d19",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/crt/rtld_dlfcn.c"
+    },
+    {
+      "source": "crt/rtld_payload.c",
+      "sha256": "dae19a11e7e70deb5cb64674970e6d781e6247b21b39759def63e5eca725506b",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/crt/rtld_payload.c"
+    },
+    {
+      "source": "crt/rtld_so.c",
+      "sha256": "f7444ca7a88e2b6d8ee487787211a7512e9f76fb20c3907f095ecb2e2f3fbba6",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/crt/rtld_so.c"
+    },
+    {
+      "source": "crt/rtld_sprx.c",
+      "sha256": "0cacf785e80ecdf89ad0f0fad07b8a9a5f7bf2a20ba109c61d20f1d8041f6bf4",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/crt/rtld_sprx.c"
+    },
+    {
+      "source": "crt/syscall.c",
+      "sha256": "7c2f8120c8e5059d387aaed0a144258c140a5ba5360f6f23da2a3442470e24b2",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/crt/syscall.c"
+    },
+    {
+      "source": "libc/arc4random.c",
+      "sha256": "a5646bb0ddbb6ff7f2d71a1e35e79f4d519a184bb285a77bcf1d94d508b0a1ec",
+      "license": "ISC",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/libc/arc4random.c"
+    },
+    {
+      "source": "libc/assert.c",
+      "sha256": "c75931a65f6a5492b47acb6cda9cb91bccf91c81f753218b57c6e35e23bdb72f",
+      "license": "BSD-3-Clause (retain exact source notice)",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/libc/assert.c"
+    },
+    {
+      "source": "libc/dirfd.c",
+      "sha256": "0f32750af6efc73e3097c57c060a202e231594d4e58bb2d90560852aa839f4e8",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/libc/dirfd.c"
+    },
+    {
+      "source": "libc/dlfcn.c",
+      "sha256": "fba78484d3a53fd627ad6f4d26dd61832743b7ffa307beef8d2deab2b60a3089",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/libc/dlfcn.c"
+    },
+    {
+      "source": "libc/emutls.c",
+      "sha256": "86813748aa5668112a0a5891601f5ae36660294a749a013fef7c3bbbd805737c",
+      "license": "Apache-2.0 WITH LLVM-exception",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/libc/emutls.c"
+    },
+    {
+      "source": "libc/gmtime.c",
+      "sha256": "07b8290a8cf3c402d569a50d64618b9b2104548b0788a47e2ec54fc1d5e65965",
+      "license": "MIT",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/libc/gmtime.c"
+    },
+    {
+      "source": "libc/localtime.c",
+      "sha256": "1d320740e7e2a198c84afd1d86a3d820c4f6cdf61dd8933599afa37d85276b4b",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/libc/localtime.c"
+    },
+    {
+      "source": "libc/mktemp.c",
+      "sha256": "0242fe277296ab7369ce71e6369946c1bb13d9089a66562b5f1d8fc72417802c",
+      "license": "BSD-3-Clause (retain exact source notice)",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/libc/mktemp.c"
+    },
+    {
+      "source": "libc/mman.c",
+      "sha256": "5288da12a3bde81ccbaf10c6b7bac5c23c80cbdf151c9cd4872c16d7e969acfe",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/libc/mman.c"
+    },
+    {
+      "source": "libc/strcasecmp.c",
+      "sha256": "685cfc3d94cda15d722201275b5e5448d4ce4eea53d6767c27bf132aa375ba56",
+      "license": "MIT",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/libc/strcasecmp.c"
+    },
+    {
+      "source": "libc/syscalls.c",
+      "sha256": "82bb957e859b7fcba00f6d777fe753a7e6fce7bac864f42f730b130fda187a77",
+      "license": "GPL-3.0-or-later",
+      "basis": "ELF STT_FILE + pinned SDK source",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/libc/syscalls.c"
+    }
+  ],
+  "launcher_provenance": [
+    {
+      "source": "samples/install_app/eboot.c",
+      "sha256": "d42edb45af0ae6c452cbc5ae73a6645ed5955f334aa6904007eec03bf6ca2259",
+      "license": "GPL-3.0-or-later",
+      "copyright": "Copyright (C) 2025 John T\u00f6rnblom",
+      "artifacts": [
+        "launcher"
+      ],
+      "basis": "Adaptation provenance: app/eboot.c:1-4; project owns its modified native entry.",
+      "license_basis": "Explicit GNU GPL version 3 or later grant in leading source-file header.",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/samples/install_app/eboot.c"
+    }
+  ],
+  "build_inputs": [
+    {
+      "source": "samples/install_app/eboot.x",
+      "sha256": "5ca0b8ad28d92ee95bf43f4d04150d28898c5a7246abd9328eaecdf743d7bd20",
+      "license": "GPL-3.0-or-later",
+      "copyright": "Copyright (C) 2025 John T\u00f6rnblom",
+      "artifacts": [
+        "launcher"
+      ],
+      "basis": "Direct native linker script selected by app/Makefile:10,31-32.",
+      "license_basis": "Explicit GNU GPL version 3 or later grant in leading source-file header.",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/samples/install_app/eboot.x",
+      "installed_path": "samples/install_app/eboot.x",
+      "source_binary_installed_bytes_equal": true
+    },
+    {
+      "source": "host/elf_x86_64.x",
+      "sha256": "3bacf56a21602a1298752023a4c5b0c305954ddf6cdbce1464476fc9da9d9093",
+      "license": "GPL-3.0-or-later",
+      "copyright": "Copyright (C) 2024 John T\u00f6rnblom",
+      "artifacts": [
+        "daemon"
+      ],
+      "basis": "Default payload linker script selected by pinned host/bin/prospero-lld.",
+      "license_basis": "Explicit GNU GPL version 3 or later grant in leading source-file header.",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/host/elf_x86_64.x",
+      "installed_path": "ldscripts/elf_x86_64.x",
+      "source_binary_installed_bytes_equal": true
+    },
+    {
+      "source": "host/bin/prospero-clang",
+      "sha256": "3dcf3139662db7b0f796c2073bc8f673a5557e48bc24d2e413896d33847a69db",
+      "license": "GPL-3.0-or-later",
+      "copyright": "Copyright (C) 2024 John T\u00f6rnblom",
+      "artifacts": [
+        "daemon",
+        "launcher"
+      ],
+      "basis": "Pinned compiler wrapper used by Makefile and app/Makefile.",
+      "license_basis": "Explicit GNU GPL version 3 or later grant in leading source-file header.",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/host/bin/prospero-clang",
+      "installed_path": "bin/prospero-clang",
+      "source_binary_installed_bytes_equal": true
+    },
+    {
+      "source": "host/bin/prospero-lld",
+      "sha256": "4b6528d0b6d1d77b532f2bfcc2e26b0abf8f42cf7b526b3e85b2f7d3eafe37ad",
+      "license": "GPL-3.0-or-later",
+      "copyright": "Copyright (C) 2024 John T\u00f6rnblom; Copyright (C) 2026 Aleksei Kulaev",
+      "artifacts": [
+        "daemon",
+        "launcher"
+      ],
+      "basis": "Pinned linker wrapper used by compiler and native app link recipes.",
+      "license_basis": "Explicit GNU GPL version 3 or later grant in leading source-file header.",
+      "url": "https://github.com/ps5-payload-dev/sdk/blob/d9c9519116944a7f1c22d262012c53b80b3520b7/host/bin/prospero-lld",
+      "installed_path": "bin/prospero-lld",
+      "source_binary_installed_bytes_equal": true
+    }
+  ]
+}

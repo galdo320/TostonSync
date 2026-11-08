@@ -1,0 +1,9 @@
+Dependency: puff 2.3
+Upstream author: Mark Adler
+Upstream location: zlib contrib/puff
+Upstream version date: 2013-01-21
+License: zlib
+
+TostónSync vendors puff.c and puff.h to decode standard DEFLATE streams while
+extracting ZIP backups. The upstream license notice is preserved in puff.h.
+No intentional functional modifications were made to the puff implementation.

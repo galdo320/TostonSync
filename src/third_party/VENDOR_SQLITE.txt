@@ -1,0 +1,8 @@
+Dependency: SQLite amalgamation 3.46.0
+Upstream source id: 2024-05-23 13:25:27 96c92aba00c8375bc32fafcdf12429c58bd8aabfcadab6683e35bbb9cdebf19e
+Upstream project: https://sqlite.org/
+License: public domain
+
+TostónSync vendors sqlite3.c and sqlite3.h to update the PS5 savedata database
+through SQLite's public C API. The upstream public-domain notice is preserved
+in the amalgamation sources.

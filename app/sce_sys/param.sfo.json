@@ -1,0 +1,19 @@
+{
+  "_comment": "PS5 TITLE_ID must match [A-Z]{4}[0-9]{5}. We use TOST10001 as the homebrew tag for TostónSync; change it if you fork and ship under a different identity. CONTENT_ID format is IV0000-<TITLE_ID>_00-<16-char tag>.",
+
+  "APP_TYPE": 1,
+  "APP_VER": "01.00",
+  "ATTRIBUTE": 0,
+  "ATTRIBUTE2": 0,
+  "ATTRIBUTE3": 0,
+  "CATEGORY": "gd",
+  "CONTENT_ID": "IV0000-TOST10001_00-TOSTONSYNCAPP001",
+  "DOWNLOAD_DATA_SIZE": 0,
+  "FORMAT": "obs",
+  "PARENTAL_LEVEL": 1,
+  "PUBTOOLINFO": "tostonsync-app",
+  "SYSTEM_VER": 0,
+  "TITLE": "TostónSync",
+  "TITLE_ID": "TOST10001",
+  "VERSION": "01.00"
+}

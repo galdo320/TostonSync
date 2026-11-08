@@ -1,0 +1,8 @@
+# Example /data/autoload.txt entry for the Y2JB Payload Manager.
+# Lines are ELF paths, one per line. They are launched in order
+# after kstuff Lite finishes setting up kernel access.
+#
+# Adjust the kstuff path to wherever you keep it on your console.
+
+/data/kstuff.elf
+/data/tostonsync/tostonsync.elf
