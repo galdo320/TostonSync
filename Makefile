@@ -451,6 +451,8 @@ all: daemon app
 
 # Optional real-browser UI check; requires Playwright and Chrome on the host.
 check-browser:
+	node tests/check_ui273_browser.js
+	python3 tests/check_ui273_mutants.py
 	node tests/check_security272_browser.js
 	node tests/check_ui269_browser.js
 	node tests/check_ux270_browser.js
@@ -510,6 +512,7 @@ check: $(SUPPORT_HEADER)
 	python3 tests/check_support272.py --mutants
 	python3 tests/check_public_export272.py
 	python3 tests/check_assertion272.py
+	python3 tests/check_assertion273.py
 	python3 tests/check_evidence_preservation.py
 	python3 tests/check_usb_transfer267.py
 	python3 tests/check_usb_probe267.py

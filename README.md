@@ -28,7 +28,7 @@ support was removed in .269; old FTP settings are ignored without being erased.
    `TostonSync-v<VERSION>.elf`, `update-manifest.json`, `update-manifest.sig`.
    Keep their names. Do not use an ELF from an unrelated build directory.
 2. If TostónSync is already running, open `http://<ps5-ip>:1993/` and use
-   **Settings → Update from a file**. Saving an update changes the installed
+   **Settings → Updates → Update from a file**. Saving an update changes the installed
    file; the current process keeps running.
 3. Check the saved version, then choose **Restart** separately to load it from
    disk. Never interrupt an update or repeat a request whose result is unknown.
@@ -54,7 +54,7 @@ token. Versions .263–.265 need a file update to reach the direct-ELF client.
 
 ## Use backups and Restore safely
 
-Choose a backup mode in Settings. **Manual only** disables automatic backups;
+Choose a backup mode in **Settings → Automatic backups**. **Manual only** disables automatic backups;
 a manual backup is still possible from a game's menu. USB and Google Drive are
 separate destinations. A completed transfer without a confirmed receipt is not
 a verified backup. Protected backups are excluded from retention and Cleanup.

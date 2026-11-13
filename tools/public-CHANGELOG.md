@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.5.273 — Clearer navigation and backup observations
+
+- Organize Settings, the backup library and game details into focused sections.
+- Keep exact-profile review and mandatory confirmations on existing action paths.
+- Share explicit Scan progress and results across views without navigation effects.
+- Distinguish Drive connection, read access, quota and catalog observations.
+- Explain older USB copies, catalog dates and current-save timestamp warnings.
+- Preserve backup/Restore/rollback engines, B1/B2 and destination policies.
+
 ## v0.5.272 — Public-source preparation and local HTTP security
 
 - Reject malformed or control-character settings before changing configuration.

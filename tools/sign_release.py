@@ -12,7 +12,9 @@ import tempfile
 import zipfile
 from private_key_scan import scan_paths
 ROOT=Path(__file__).resolve().parents[1]
-REPO='galdo320/TostonSync'
+REPO='galdo320/TostonSync-dev'
+PRIVATE_REPO_ID='R_kgDOVM1Sqw'
+PUBLIC_REPO='galdo320/TostonSync'
 MAX=16*1024*1024
 
 def digest(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
@@ -118,8 +120,10 @@ def prepare(args):
     print(json.dumps({'result':'PASS_SIGNED_LOCAL','version':version,'elf_size':len(data),'elf_sha256':obj['sha256'],'zip_sha256':obj['asset_sha256']}))
 
 def private_repo():
-    data=json.loads(subprocess.check_output(['gh','repo','view',REPO,'--json','visibility']))
+    data=json.loads(subprocess.check_output(['gh','repo','view',REPO,'--json','id,nameWithOwner,visibility']))
     if data.get('visibility')!='PRIVATE':raise ValueError('repository is not PRIVATE')
+    if data.get('id')!=PRIVATE_REPO_ID or data.get('nameWithOwner')!=REPO:
+        raise ValueError('private repository identity differs')
 
 def source_binding(tag,commit):
     if not re.fullmatch(r'[0-9a-f]{40}',commit):raise ValueError('source commit must be an exact full commit ID')
@@ -217,7 +221,7 @@ def release_notes(path,version):
     notes=path.read_bytes();text=notes.decode('utf-8')
     if len(notes)>4096 or b'\0' in notes:raise ValueError('release notes exceed the signed display contract')
     for name in ('LICENSE','THIRD_PARTY_NOTICES.md','README.md'):
-        pattern=r'https://github\.com/'+re.escape(REPO)+r'/blob/(?:main|v'+re.escape(version)+r'|[0-9a-f]{40})/'+re.escape(name)+r'(?=[)#?\s]|$)'
+        pattern=r'https://github\.com/'+re.escape(PUBLIC_REPO)+r'/blob/(?:main|v'+re.escape(version)+r'|[0-9a-f]{40})/'+re.escape(name)+r'(?=[)#?\s]|$)'
         if not re.search(pattern,text):raise ValueError('release notes missing repository link: '+name)
     if scan_paths([path]):raise ValueError('private signing material detected in notes')
     return notes

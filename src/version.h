@@ -5,7 +5,7 @@
 #ifndef TOSTONSYNC_VERSION_H
 #define TOSTONSYNC_VERSION_H
 
-#define TOSTONSYNC_VERSION "0.5.272"
+#define TOSTONSYNC_VERSION "0.5.273"
 // Operational delivery. Host fixtures may compile the preserved temporary path.
 #ifndef TOSTONSYNC_STARTUP_VALIDATION_ONLY
 #define TOSTONSYNC_STARTUP_VALIDATION_ONLY 0
